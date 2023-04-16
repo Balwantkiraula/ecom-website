@@ -32,7 +32,7 @@ const items = [
 const ProductList = () => {
     return (
         <Container style={{ marginTop: "20px" }}>
-            <Row xs={1} md={2} lg={4}>
+            <Row xs={2} md={2} lg={2}>
                 {items.map((items, index) => (
                     <Col key={index}>
                         <ProductCard item={items} />

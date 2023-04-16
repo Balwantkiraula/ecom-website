@@ -32,7 +32,7 @@ const ProductCard = (props) => {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>
-          Price: ${price}
+          Price: ₹{price}
         </Card.Text>
         <Button variant="primary" onClick={buttonClickHandler}>Add to Cart</Button>
       </Card.Body>

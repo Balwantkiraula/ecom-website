@@ -1,16 +1,17 @@
 import { useState } from "react";
-import Header from "./components/Header/Header";
-import { Container } from "react-bootstrap";
-import ProductList from "./components/Products/ProductList";
-import CartContainer from "./components/Cart/CartContainer";
 import CartContext from "./components/Context/CartContext";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import StorePage from "./components/Pages/Store";
+import AboutPage from "./components/Pages/About";
+
+const router = createBrowserRouter([
+  { path: "/", element: <StorePage /> },
+  { path: "/About", element: <AboutPage /> },
+]);
 
 function App() {
-
-  
   const [cartOpen, setCartOpen] = useState(false);
   const [orderList, setOrderList] = useState([]);
-
 
   const ctxObj = {
     cartOpen: cartOpen,
@@ -19,15 +20,10 @@ function App() {
     setOrderList: setOrderList,
   };
 
-
   return (
     <div>
       <CartContext.Provider value={ctxObj}>
-        <Header />
-        <Container>
-          <ProductList></ProductList>
-        </Container>
-        {cartOpen && <CartContainer></CartContainer>}
+        <RouterProvider router={router} />
       </CartContext.Provider>
     </div>
   );
