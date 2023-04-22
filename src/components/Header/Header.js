@@ -15,15 +15,16 @@ const Header = () => {
   })
 
   return (
-    <Navbar bg="success" expand="lg" className="justify-content-between">
+    <Navbar bg="light" expand="lg" className="justify-content-between">
       <Container>
         <Navbar.Brand href="#home">Our Ecommerce Site</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-          <Nav.Link href="/home" className="nav-link" >Home</Nav.Link>
-            <Link to="/" className="nav-link" >Store</Link>
+            <Link to="/" className="nav-link" >Home</Link>
+            <Link to="/store" className="nav-link" >Store</Link>
             <Link to="/about" className="nav-link" >About</Link>
+            <Link to="/contact" className="nav-link" >Contact Us</Link>
           </Nav>
         </Navbar.Collapse>
         <Nav>

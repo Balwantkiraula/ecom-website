@@ -1,15 +1,13 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import HomeProduct from "../HomeComponent/HomeProducts";
-import Header from "../Header/Header";
 
 const HomePage = () => {
   return (
     <Container>
-      <Header />
       <header
         style={{
-          textAlign: "center",
+          textAlign: "center", 
           backgroundColor: "#bf00ff",
           color: "whitesmoke",
           borderRadius: "10px",

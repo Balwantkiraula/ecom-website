@@ -8,7 +8,7 @@ const HomeProduct = () => {
           src="https://prasadyash2411.github.io/ecom-website/img/Album%201.png"
         />
         <Card.Body>
-          <Card.Title>Product 1</Card.Title>
+          <Card.Title>Product </Card.Title>
           <Card.Text>
             This is a description of product . It is a very good product and
             will be useful for your needs.

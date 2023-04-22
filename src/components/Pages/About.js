@@ -1,16 +1,12 @@
 import { Col, Container, Row } from "react-bootstrap";
-import Header from "../Header/Header";
 import { useContext } from "react";
 import CartContext from "../Context/CartContext";
-import CartContainer from "../Cart/CartContainer";
 
 const AboutPage = () => {
     
   const ctx = useContext(CartContext);
 
   return (
-    <div>
-      <Header />
       <Container>
         <Row>
           <Col>
@@ -42,8 +38,6 @@ const AboutPage = () => {
           </Col>
         </Row>
       </Container>
-      {ctx.cartOpen && <CartContainer></CartContainer>}
-    </div>
   );
 };
 
