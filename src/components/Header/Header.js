@@ -15,7 +15,7 @@ const Header = () => {
   })
 
   return (
-    <Navbar bg="light" expand="lg" className="justify-content-between">
+    <Navbar bg="success" expand="lg" className="justify-content-between">
       <Container>
         <Navbar.Brand href="#home">Our Ecommerce Site</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

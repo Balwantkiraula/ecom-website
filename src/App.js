@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import { useState } from "react";
 import CartContext from "./components/Context/CartContext";
 import StorePage from "./components/Pages/Store";
 import AboutPage from "./components/Pages/About";
@@ -8,6 +8,7 @@ import ContactUs from "./components/Pages/ContactUs";
 import { Route ,Routes} from "react-router-dom";
 import Header from "./components/Header/Header";
 import CartContainer from "./components/Cart/CartContainer";
+import ProductDetails from "./components/Pages/ProductDetails";
 
 
 
@@ -31,6 +32,7 @@ function App() {
       <Route path = '/store'  element={<StorePage/>}/>
       <Route path = '/about'  element={<AboutPage/>}/>
       <Route path = '/contact'  element={<ContactUs/>}/>
+      <Route path = '/products/:productID'  element={<ProductDetails/>}/>
       </Routes>
       {cartOpen && <CartContainer></CartContainer>}
       </CartContext.Provider>
