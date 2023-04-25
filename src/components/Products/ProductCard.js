@@ -9,25 +9,31 @@ const ProductCard = (props) => {
   const navto = useNavigate()
 
   const CardItemClickHandler = () => {
-    navto (`/products/${id}`)
+    navto(`/products/${id}`)
   }
 
   const ctx = useContext(CartContext)
   const orderList = [...ctx.orderList]
+  const signIn = ctx.isSignIn;
 
   const buttonClickHandler = () => {
-    const n = orderList.length;
-    for (let i = 0; i <= n; i++) {
-      if (i < n && orderList[i].id === id) {
-        orderList[i].quantity += 1;
-        break;
+    if (signIn) {
+      const n = orderList.length;
+      for (let i = 0; i <= n; i++) {
+        if (i < n && orderList[i].id === id) {
+          orderList[i].quantity += 1;
+          break;
+        }
+        else if (i === n) {
+          const obj = { ...props.item, quantity: 1 }
+          orderList.push(obj);
+        }
       }
-      else if (i === n) {
-        const obj = { ...props.item, quantity: 1 }
-        orderList.push(obj);
-      }
+      ctx.setOrderList(orderList)
     }
-    ctx.setOrderList(orderList)
+    else {
+      ctx.setSignInModalVisibility(true)
+    }
     console.log(orderList)
 
   }

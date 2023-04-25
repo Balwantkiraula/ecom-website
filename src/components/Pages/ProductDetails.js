@@ -6,10 +6,13 @@ import { items } from "../Products/ProductList";
 import { Card, Button, Row, Col, ListGroup } from 'react-bootstrap';
 
 const ProductDetails = () => {
+//   const { product } = props;
   const params = useParams();
   const id = params.productID
+  //   const { product } = props;
     const ctx = useContext(CartContext);
-
+    // const productList = ctx.productlist
+    // console.log(ProductList)
     const product  = items.filter(item => item.id === id)[0]
 
 
@@ -57,11 +60,11 @@ const ProductDetails = () => {
       </Row>
 
       <div className="mt-5">
-        <h3>Product Reviews</h3>
+        <h3 style={{color:"white"}}>Product Reviews</h3>
         {product.reviews.map((review, index) => (
           <div key={index}>
-            <h5>{review.title}</h5>
-            <p>{review.comment}</p>
+            <h5 style={{color:"white"}}>{review.title}</h5>
+            <p style={{color:"white"}}>{review.comment}</p>
           </div>
         ))}
       </div>

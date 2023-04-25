@@ -5,36 +5,43 @@ import AboutPage from "./components/Pages/About";
 import HomePage from "./components/Pages/Home";
 import ContactUs from "./components/Pages/ContactUs";
 
-import { Route ,Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import CartContainer from "./components/Cart/CartContainer";
 import ProductDetails from "./components/Pages/ProductDetails";
+import SignUpModal from "./components/AuthForm/SignUpModal";
 
 
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [orderList, setOrderList] = useState([]);
+  const [signInModalVisibility, setSignInModalVisibility] = useState(false);
 
   const ctxObj = {
     cartOpen: cartOpen,
     setCartOpen: setCartOpen,
     orderList: orderList,
     setOrderList: setOrderList,
+    isSignIn: false,
+    signInModalVisibility: signInModalVisibility,
+    setSignInModalVisibility: setSignInModalVisibility
+
   };
 
   return (
     <div>
       <CartContext.Provider value={ctxObj}>
-      <Header />
-      <Routes>
-      <Route path = '/'  element={<HomePage/>}/>
-      <Route path = '/store'  element={<StorePage/>}/>
-      <Route path = '/about'  element={<AboutPage/>}/>
-      <Route path = '/contact'  element={<ContactUs/>}/>
-      <Route path = '/products/:productID'  element={<ProductDetails/>}/>
-      </Routes>
-      {cartOpen && <CartContainer></CartContainer>}
+        <SignUpModal show={signInModalVisibility}></SignUpModal>
+        <Header />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/store' element={<StorePage />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/contact' element={<ContactUs />} />
+          <Route path='/products/:productID' element={<ProductDetails />} />
+        </Routes>
+        {cartOpen && <CartContainer></CartContainer>}
       </CartContext.Provider>
     </div>
   );

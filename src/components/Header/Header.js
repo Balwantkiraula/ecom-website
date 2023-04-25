@@ -8,6 +8,7 @@ const Header = () => {
   const ctx = useContext(CartContext);
 
   const orderlist = ctx.orderList;
+  const signIn = ctx.isSignIn;
 
   let cartItemCount = 0;
   orderlist.forEach(item => {
@@ -15,7 +16,7 @@ const Header = () => {
   })
 
   return (
-    <Navbar bg="success" expand="lg" className="justify-content-between">
+    <Navbar bg="light" expand="lg" className="justify-content-between">
       <Container>
         <Navbar.Brand href="#home">Our Ecommerce Site</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,6 +28,9 @@ const Header = () => {
             <Link to="/contact" className="nav-link" >Contact Us</Link>
           </Nav>
         </Navbar.Collapse>
+        <Nav>
+          <Button variant="outline-warning" onClick={() => ctx.setSignInModalVisibility(true)} style={{ marginRight: "1rem" }}>{`${signIn ? 'Logout' : 'Login'}`}</Button>
+        </Nav>
         <Nav>
           <Button variant="outline-warning" onClick={() => ctx.setCartOpen(true)}>{`My Cart ${cartItemCount}`}</Button>
         </Nav>

@@ -1,11 +1,14 @@
 import React from "react"
 const CartContext = React.createContext(
     {
-        productlist:[],
+        productlist: [],
         cartOpen: false,
         setCartOpen: () => { },
         orderList: [],
-        setOrderList: () => { }
+        setOrderList: () => { },
+        isSignIn: false,
+        signInModalVisibility: false,
+        setSignInModalVisibility: () => { }
     }
 )
 

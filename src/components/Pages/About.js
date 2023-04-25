@@ -1,17 +1,15 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { useContext } from "react";
-import CartContext from "../Context/CartContext";
+
 
 const AboutPage = () => {
-    
-  const ctx = useContext(CartContext);
+
 
   return (
       <Container>
         <Row>
           <Col>
-            <h1>About Us</h1>
-            <p>
+            <h1 style={{color:"white"}}>About Us</h1>
+            <p style={{color:"white"}}>
               Lorem ipsum carrots enhanced rebates. Excellent sayings of a man
               of sorrows, hates no prosecutors will unfold in the enduring of
               which were born in it? Often leads smallest mistake some pain main
