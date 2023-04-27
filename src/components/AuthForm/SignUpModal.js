@@ -20,10 +20,10 @@ const SignUpModal = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    let URL = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAsml6wbuve-HmFYGPPHSslxkDGbmoTw74";
-    if (isSignIn) {
-      URL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAsml6wbuve-HmFYGPPHSslxkDGbmoTw74'
-    }
+    let URL = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAsml6wbuve-HmFYGPPHSslxkDGbmoTw74"; 
+      if (isSignIn) {     
+      URL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAsml6wbuve-HmFYGPPHSslxkDGbmoTw74'  
+       }
 
     const response = await fetch(
       URL,
@@ -43,6 +43,16 @@ const SignUpModal = () => {
     if (data.error) {
       alert(data.error.message)
       console.log(data.error.message)
+    }
+    else{
+      if(data.registered){
+          ctx.setIsLogedIn(true)
+          ctx.setSignInModalVisibility(false)
+          ctx.setIdToken(data.idToken);
+          console.log(data.idToken);
+      }else{
+          setIsSignIn(true);
+      }
     }
     console.log(data);
     setIsLoading(false);

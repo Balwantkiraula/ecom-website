@@ -8,12 +8,22 @@ const Header = () => {
   const ctx = useContext(CartContext);
 
   const orderlist = ctx.orderList;
-  const signIn = ctx.isSignIn;
+  const signIn = ctx.isLogedIn;
 
   let cartItemCount = 0;
   orderlist.forEach(item => {
     cartItemCount += item.quantity
   })
+
+  const loginLogoutHandler = ()=>{
+    if(ctx.isLogedIn){
+      ctx.setIsLogedIn(false);
+      ctx.setIdToken(null);
+      ctx.setOrderList([]);
+    }else{
+      ctx.setSignInModalVisibility(true);
+    }
+   }
 
   return (
     <Navbar bg="light" expand="lg" className="justify-content-between">
@@ -29,7 +39,7 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
         <Nav>
-          <Button variant="outline-warning" onClick={() => ctx.setSignInModalVisibility(true)} style={{ marginRight: "1rem" }}>{`${signIn ? 'Logout' : 'Login'}`}</Button>
+        <Button variant="outline-warning" onClick={loginLogoutHandler} style={{ marginRight: "1rem" }}>{`${signIn? 'Logout' : 'Login'}`}</Button>
         </Nav>
         <Nav>
           <Button variant="outline-warning" onClick={() => ctx.setCartOpen(true)}>{`My Cart ${cartItemCount}`}</Button>

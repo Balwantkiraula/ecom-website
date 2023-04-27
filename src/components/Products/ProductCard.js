@@ -14,7 +14,7 @@ const ProductCard = (props) => {
 
   const ctx = useContext(CartContext)
   const orderList = [...ctx.orderList]
-  const signIn = ctx.isSignIn;
+  const signIn = ctx.isLogedIn;
 
   const buttonClickHandler = () => {
     if (signIn) {
