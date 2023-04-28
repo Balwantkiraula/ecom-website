@@ -130,7 +130,7 @@ const SignUpModal = () => {
 
             <div className="text-center">
               <Button variant="outline-primary" type="submit" className="mt-3" style={{ width: '10rem' }}>
-                {`${!isLoading ? `${isSignIn ? 'Sign In' : 'Sign Up'}` : 'Lodading & Configuring..'}`}
+                {`${!isLoading ? `${isSignIn ? 'Sign In' : 'Sign Up'}` : 'Loadding & Configuring..'}`}
 
               </Button>
             </div>
