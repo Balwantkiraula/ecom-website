@@ -15,15 +15,16 @@ const Header = () => {
     cartItemCount += item.quantity
   })
 
-  const loginLogoutHandler = ()=>{
-    if(ctx.isLogedIn){
+  const loginLogoutHandler = () => {
+    if (ctx.isLogedIn) {
+      localStorage.setItem('idToken', '')
       ctx.setIsLogedIn(false);
       ctx.setIdToken(null);
       ctx.setOrderList([]);
-    }else{
+    } else {
       ctx.setSignInModalVisibility(true);
     }
-   }
+  }
 
   return (
     <Navbar bg="light" expand="lg" className="justify-content-between">
@@ -39,7 +40,10 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
         <Nav>
-        <Button variant="outline-warning" onClick={loginLogoutHandler} style={{ marginRight: "1rem" }}>{`${signIn? 'Logout' : 'Login'}`}</Button>
+          {ctx.isLogedIn && <Link to={`/user/${ctx.idToken}`} className="nav-link"> My Profile </Link>}
+        </Nav>
+        <Nav>
+          <Button variant="outline-warning" onClick={loginLogoutHandler} style={{ marginRight: "1rem" }}>{`${signIn ? 'Logout' : 'Login'}`}</Button>
         </Nav>
         <Nav>
           <Button variant="outline-warning" onClick={() => ctx.setCartOpen(true)}>{`My Cart ${cartItemCount}`}</Button>

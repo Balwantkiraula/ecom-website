@@ -10,25 +10,28 @@ import Header from "./components/Header/Header";
 import CartContainer from "./components/Cart/CartContainer";
 import ProductDetails from "./components/Pages/ProductDetails";
 import SignUpModal from "./components/AuthForm/SignUpModal";
+import ProfilePage from "./components/Pages/ProfilePage";
 
 
 
 function App() {
+  const userIdToken = localStorage.getItem('idToken') ? localStorage.getItem('idToken') : '';
+  const userLogedIn = userIdToken === '' ? false : true;
   const [cartOpen, setCartOpen] = useState(false);
   const [orderList, setOrderList] = useState([]);
   const [signInModalVisibility, setSignInModalVisibility] = useState(false);
-  const[idToken, setIdToken]=useState('');
-  const[isLogedIn, setIsLogedIn] = useState(false)
+  const [idToken, setIdToken] = useState(userIdToken);
+  const [isLogedIn, setIsLogedIn] = useState(userLogedIn)
 
   const ctxObj = {
     cartOpen: cartOpen,
     setCartOpen: setCartOpen,
     orderList: orderList,
     setOrderList: setOrderList,
-    isLogedIn:isLogedIn,
-    setIsLogedIn:setIsLogedIn,
-    idToken:idToken,
-    setIdToken:setIdToken,
+    isLogedIn: isLogedIn,
+    setIsLogedIn: setIsLogedIn,
+    idToken: idToken,
+    setIdToken: setIdToken,
     signInModalVisibility: signInModalVisibility,
     setSignInModalVisibility: setSignInModalVisibility
 
@@ -44,6 +47,7 @@ function App() {
           <Route path='/store' element={<StorePage />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/contact' element={<ContactUs />} />
+          <Route path='user/:userID' element={<ProfilePage />} />
           <Route path='/products/:productID' element={<ProductDetails />} />
         </Routes>
         {cartOpen && <CartContainer></CartContainer>}

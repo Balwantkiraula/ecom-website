@@ -3,6 +3,7 @@ import { Modal, Form, Button, Nav } from 'react-bootstrap';
 import CartContext from '../Context/CartContext';
 import { useContext } from 'react';
 
+
 const SignUpModal = () => {
   const ctx = useContext(CartContext)
   const show = ctx.signInModalVisibility;
@@ -45,13 +46,14 @@ const SignUpModal = () => {
       console.log(data.error.message)
     }
     else{
-      if(data.registered){
-          ctx.setIsLogedIn(true)
-          ctx.setSignInModalVisibility(false)
-          ctx.setIdToken(data.idToken);
-          console.log(data.idToken);
-      }else{
-          setIsSignIn(true);
+      if (data.registered) {
+        localStorage.setItem('idToken', data.idToken);
+        ctx.setIsLogedIn(true)
+        ctx.setSignInModalVisibility(false)
+        ctx.setIdToken(data.idToken);
+        console.log(data.idToken);
+      } else {
+        setIsSignIn(true);
       }
     }
     console.log(data);
