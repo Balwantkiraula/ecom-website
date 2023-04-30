@@ -27,7 +27,7 @@ function App() {
     if(isLogedIn){
       setTimeout(()=>{
         localStorage.setItem('idToken' , '')
-      },1*60*1000)
+      },5*60*1000)
       // return clearTimeout(timer);
     }
   },[isLogedIn])
