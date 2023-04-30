@@ -27,7 +27,7 @@ function App() {
     if(isLogedIn){
       setTimeout(()=>{
         localStorage.setItem('idToken' , '')
-      },5*60*1000)
+      },1*60*1000)
       // return clearTimeout(timer);
     }
   },[isLogedIn])
@@ -57,7 +57,7 @@ function App() {
           <Route path='/about' element={<AboutPage />} />
           <Route path='/contact' element={<ContactUs />} />
           <Route path='user/:userID' element={<ProfilePage />} />
-          <Route path='/products/:productID' element={<ProductDetails />} />
+          <Route path='/products/:productID/:idToken' element={<ProductDetails />} />
         </Routes>
         {cartOpen && <CartContainer></CartContainer>}
       </CartContext.Provider>

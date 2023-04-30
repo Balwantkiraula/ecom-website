@@ -7,10 +7,8 @@ const HomePage = () => {
     <Container>
       <header
         style={{
-          textAlign: "center", 
-          backgroundColor: "#bf00ff",
-          color: "whitesmoke",
-          borderRadius: "10px",
+          textAlign: "left", 
+          color: "white",
           fontFamily: "cursive",
         }}
       >
