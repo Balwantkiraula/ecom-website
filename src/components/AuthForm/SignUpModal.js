@@ -48,10 +48,13 @@ const SignUpModal = () => {
     else{
       if (data.registered) {
         localStorage.setItem('idToken', data.idToken);
+        localStorage.setItem('userid',data.localId);
         ctx.setIsLogedIn(true)
         ctx.setSignInModalVisibility(false)
         ctx.setIdToken(data.idToken);
+        ctx.setUserId(data.localId)
         console.log(data.idToken);
+        console.log(data.localId)
       } else {
         setIsSignIn(true);
       }
